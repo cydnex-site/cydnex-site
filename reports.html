@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sample reports · Cydnex</title>
+<meta name="description" content="See how Cydnex security reports are structured: executive summary, findings with CVSS scores, evidence, fixes and retest results.">
+<meta name="theme-color" content="#0f6e78">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://cydnex.com/reports">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></symbol>
+<symbol id="i-code" viewBox="0 0 24 24"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18a4.5 4.5 0 01-.6-8.96A6 6 0 0118 10a4 4 0 01-.5 8z"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M9.5 14l2 2 3.5-4"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></symbol>
+</defs></svg>
+<header class="top"><div class="wrap">
+<a class="logo" href="index.html" aria-label="Cydnex home"><svg class="xmark" viewBox="0 0 108 96" aria-hidden="true"><path class="x1" d="M8 8 H36 L64 48 L36 88 H8 L36 48 Z"/><path d="M52 8 H80 L100 36 L86 56 Z" fill="#7ED3D9"/><path d="M86 40 L100 60 L80 88 H52 Z" fill="#0F6E78"/></svg><span class="wm">cydnex</span></a>
+<button class="menu" id="menu" aria-expanded="false" aria-controls="links" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<nav class="links" id="links" aria-label="Main">
+<a href="services.html">Services</a><a href="reports.html" aria-current="page">Reports</a><a href="training.html">Training</a><a href="industries.html">Industries</a><a href="about.html">About</a>
+<a class="btn" href="index.html#contact" style="min-height:44px;padding:0 20px;font-size:15px;color:var(--btnfg)">Request an assessment</a>
+</nav></div></header>
+<main id="main">
+<section class="phero"><div class="wrap"><p class="eyebrow">Reports</p><h1>A report your board and your engineers can both use.</h1><p class="lede">Every engagement ends with a document you can act on. Here is what is inside, shown with sample data.</p><div class="cta"><a class="btn" href="index.html?service=Penetration%20testing#contact">Ask for a sanitised sample</a></div></div></section><section class="sec"><div class="wrap"><div class="frame"><div class="bar2"><i></i><i></i><i></i><span>Sample report · Web application test</span></div>
+<div class="body">
+<div class="pane"><p class="sub" style="margin-top:0">Executive summary</p>
+<div class="stack">
+<div class="kv"><span>Scope</span><b>Customer portal and API</b></div>
+<div class="kv"><span>Method</span><b>Manual testing with tools</b></div>
+<div class="kv"><span>Findings</span><b>1 high · 3 medium · 5 low</b></div>
+<div class="kv"><span>Retest</span><b>High fix verified</b></div></div>
+<span class="tag">Sample layout, fictional data</span></div>
+<div class="pane"><span class="sev">High · CVSS 7.1</span><h3 style="margin-top:14px;font-size:24px">Broken access control on the invoice API</h3>
+<div class="meta"><span><b>OWASP</b> A01:2021</span><span><b>CWE</b> 639</span><span><b>Asset</b> /api/invoices/{id}</span></div>
+<p class="sub" style="margin-top:0">Evidence</p>
+<pre class="code">GET /api/invoices/1043     (signed in as user A)
+200 OK  {"customer":"user B","total":"48,200"}</pre>
+<p class="sub">Fix</p>
+<ol class="fix"><li>Check on the server that the invoice belongs to the signed-in account.</li><li>Add an automated test for cross-account access.</li><li>Use unguessable identifiers as a second layer.</li></ol></div>
+</div></div></div><p class="more-note">Sample layout with fictional data. Real reports are confidential to each client.</p></div></section><section class="sec alt"><div class="wrap"><div class="head"><div><p class="eyebrow">Inside every report</p><h2>Six parts, always in the same order</h2></div></div><div class="cgrid"><div class="card"><small>Part 1</small><h3>Executive summary</h3><p>One page for leaders: overall risk, what matters most and what to do first.</p></div><div class="card"><small>Part 2</small><h3>Scope and method</h3><p>Exactly what we tested, when, and how, so nothing is assumed.</p></div><div class="card"><small>Part 3</small><h3>Findings</h3><p>Each issue with a severity, CVSS score, affected asset and real impact.</p></div><div class="card"><small>Part 4</small><h3>Evidence</h3><p>Screenshots, requests and steps so your team can reproduce every finding.</p></div><div class="card"><small>Part 5</small><h3>Fixes</h3><p>Clear, prioritised remediation for developers, not generic advice.</p></div><div class="card"><small>Part 6</small><h3>Retest results</h3><p>Confirmation of what you fixed, plus a letter you can share with customers.</p></div></div></div></section><section class="sec"><div class="wrap"><div class="head"><div><p class="eyebrow">Severity</p><h2>How we rate risk</h2></div><p class="lede">We use the industry-standard CVSS score, then adjust for how exposed the asset really is in your business.</p></div><div class="tbl"><table><thead><tr><th>Severity</th><th>CVSS score</th><th>Our suggested timeline</th></tr></thead><tbody><tr><td><span class="sevdot" style="background:#b42318"></span>Critical</td><td>9.0 – 10.0</td><td>Fix immediately</td></tr><tr><td><span class="sevdot" style="background:#c4320a"></span>High</td><td>7.0 – 8.9</td><td>Fix within days</td></tr><tr><td><span class="sevdot" style="background:#b54708"></span>Medium</td><td>4.0 – 6.9</td><td>Fix within weeks</td></tr><tr><td><span class="sevdot" style="background:#0f6e78"></span>Low</td><td>0.1 – 3.9</td><td>Plan a fix</td></tr><tr><td><span class="sevdot" style="background:#667085"></span>Informational</td><td>0.0</td><td>Good practice</td></tr></tbody></table></div></div></section><section class="sec alt"><div class="wrap prose"><p class="eyebrow">Confidentiality</p><h2 style="margin-top:12px">Your findings stay yours</h2><ul class="ticks"><li>Reports are shared only through encrypted, access-controlled links.</li><li>Test data from your systems is deleted or returned when the engagement ends.</li><li>We never name clients or share findings without written permission.</li></ul></div></section>
+<section class="band sec" style="padding-block:clamp(56px,7vw,96px)"><div class="wrap"><h2 style="max-width:20ch;color:#fff">Not sure where to start? Tell us in plain words.</h2><p class="lede" style="color:#dbeff1;margin-top:14px">We reply within one working day with a clear next step.</p><a class="btn" href="index.html#contact" style="margin-top:24px">Start your request</a></div></section>
+</main>
+<footer><div class="wrap"><div class="cols">
+<div><a class="logo" href="index.html"><svg class="xmark" viewBox="0 0 108 96" aria-hidden="true"><path class="x1" d="M8 8 H36 L64 48 L36 88 H8 L36 48 Z"/><path d="M52 8 H80 L100 36 L86 56 Z" fill="#7ED3D9"/><path d="M86 40 L100 60 L80 88 H52 Z" fill="#0F6E78"/></svg><span class="wm">cydnex</span></a><p style="max-width:36ch;color:color-mix(in srgb,var(--bandfg) 78%,var(--band))">Cybersecurity services and training.</p><address class="biz">Cydnex Technologies Private Limited (incorporation in progress)<br>Registered office: Madhapur, Hyderabad, Telangana, India<br><a href="mailto:security@cydnex.com">security@cydnex.com</a> · <a href="mailto:academy@cydnex.com">academy@cydnex.com</a><br><a href="tel:+919398530393">+91 93985 30393</a></address></div>
+<div><b>Services</b><a href="services.html#pentest">Penetration testing</a><a href="services.html#soc">Managed SOC</a><a href="services.html#cloud">Cloud security</a><a href="services.html#compliance">Compliance</a><a href="services.html">All services</a></div>
+<div><b>Academy</b><a href="training.html">All tracks</a><a href="training.html#webinar">Weekly webinar</a><a href="index.html?service=Online%20training%20course#contact">Enrol</a></div>
+<div><b>Company</b><a href="about.html">About</a><a href="reports.html">Sample reports</a><a href="industries.html">Industries</a><a href="careers.html">Careers</a><a href="disclosure.html">Responsible disclosure</a><a href="index.html#contact">Contact</a></div></div>
+<p class="legal">© 2026 <span data-b>Cydnex</span> · All rights reserved</p><nav class="legal-links" aria-label="Legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refund.html">Refund Policy</a><a href="cookies.html">Cookie Policy</a><button type="button" id="cset">Cookie settings</button><a href="privacy.html#delete">Delete my data</a></nav><p class="tm">CompTIA, Security+, CySA+ and PenTest+ are trademarks of CompTIA, Inc. CISSP is a trademark of ISC2. CISM is a trademark of ISACA. Cydnex is not affiliated with or endorsed by them. Other framework names belong to their owners.</p></div></footer>
+<div class="ck" id="ck" role="dialog" aria-labelledby="ck-h" aria-describedby="ck-p" hidden><h2 id="ck-h">Your choice on cookies</h2><p id="ck-p">We use no tracking or advertising cookies. One optional item: our fonts load from Google Fonts, which shares your IP address with Google. Say no and the site uses your device's fonts instead. Details in our <a href="cookies.html">Cookie Policy</a>.</p><div class="row"><button type="button" id="ck-no">Use device fonts</button><button type="button" id="ck-yes">Allow Google Fonts</button></div></div>
+<script src="app.js" defer></script>
+</body>
+</html>
