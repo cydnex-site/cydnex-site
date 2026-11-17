@@ -1,0 +1,9 @@
+{
+  // Deploy config for the cydnex-training Worker (static Academy site).
+  "name": "cydnex-training",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page"
+  }
+}
