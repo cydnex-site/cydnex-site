@@ -1,3 +1,6 @@
 # Cydnex website
 
-Static site for cydnex.com, deployed on Cloudflare Pages. No build step: the repository root is the site.
+Two static sites, both on Cloudflare Pages with no build step:
+
+- Repository root: cydnex.com (security services)
+- `training/`: training.cydnex.com (Cydnex Academy), a separate Pages project whose root directory is `training`
