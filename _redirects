@@ -1,3 +1,0 @@
-/training https://training.cydnex.com/ 301
-/training.html https://training.cydnex.com/ 301
-/training/* https://training.cydnex.com/:splat 301
