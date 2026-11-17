@@ -1,5 +1,5 @@
 "use strict";
-const BRAND="Cydnex",PHONE="919398530393",MAIL="security@cydnex.com";
+const BRAND="Cydnex",PHONE="919398530393",MAIL="security@cydnex.com",ACAD="academy@cydnex.com";
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 $$("[data-b]").forEach(e=>e.textContent=BRAND);
 $$("[data-mail]").forEach(e=>e.textContent=MAIL);
@@ -30,6 +30,7 @@ $("#next").addEventListener("click",()=>rail.scrollBy({left:320,behavior:"smooth
 /* contact: plain text to a formal message */
 if($("#form")){
 const f={n:$("#n"),e:$("#e"),c:$("#c"),p:$("#p"),s:$("#s"),r:$("#r"),pc:$("#pc"),ag:$("#ag")},wa=$("#wa"),em=$("#em"),st=$("#st");
+const to=()=>/training/i.test(f.s.value)?ACAD:MAIL;
 const tidy=t=>{t=t.replace(/\s+/g," ").trim();if(!t)return"";t=t[0].toUpperCase()+t.slice(1);return/[.!?]$/.test(t)?t:t+"."};
 function message(){
   const n=f.n.value.trim()||"[your name]",c=f.c.value.trim()||"myself",e=f.e.value.trim()||"[your email]";
@@ -56,7 +57,7 @@ function refresh(){
   $("#pvt").textContent=m;
   const subj=`Enquiry: ${f.s.value||"Cybersecurity services"} - ${f.c.value.trim()||"New enquiry"}`;
   wa.href=`https://wa.me/${PHONE}?text=${encodeURIComponent(m)}`;
-  em.href=`mailto:${MAIL}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(m)}`;
+  em.href=`mailto:${to()}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(m)}`;
   const g=valid(false);
   wa.setAttribute("aria-disabled",String(!g));em.setAttribute("aria-disabled",String(!g));
 }
@@ -64,7 +65,7 @@ Object.values(f).forEach(el=>el.addEventListener(el.type==="checkbox"?"change":"
 $("#form").addEventListener("submit",e=>e.preventDefault());
 [wa,em].forEach(a=>a.addEventListener("click",e=>{
   if(!valid(true)){e.preventDefault();st.textContent="Fill in the marked fields first.";return}
-  st.textContent=a===wa?"WhatsApp should open in a new tab. If it does not, use Copy message.":`Your email app should open. If it does not, copy the message and send it to ${MAIL}.`;
+  st.textContent=a===wa?"WhatsApp should open in a new tab. If it does not, use Copy message.":`Your email app should open. If it does not, copy the message and send it to ${to()}.`;
 }));
 $("#cp").addEventListener("click",async()=>{
   if(!valid(true)){st.textContent="Fill in the marked fields first.";return}
