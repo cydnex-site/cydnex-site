@@ -303,3 +303,6 @@ footer .legal{margin-top:48px;padding-top:22px;border-top:1px solid rgba(207,227
 .links a.acad-link .ext{font-size:13px;opacity:.8}
 .links a.acad-link:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 @media(max-width:860px){.links a.acad-link{margin:14px 0 0;justify-content:center;min-height:48px;border-bottom:1px solid var(--ice2);font-size:17px}.links a.acad-link::before{display:none}.links .acad-link+.btn{margin-top:10px}}
+.acad-mini{display:none}
+@media(max-width:860px){.acad-mini{display:inline-flex;align-items:center;gap:6px;margin-left:auto;min-height:40px;padding:0 14px;border-radius:99px;background:var(--bg3);border:1px solid var(--ice2);color:var(--blue);font-weight:600;font-size:15px;text-decoration:none}.acad-mini:focus-visible{outline:3px solid var(--blue);outline-offset:3px}}
+@media(max-width:340px){.acad-mini{padding:0 10px;font-size:14px}.acad-mini svg{display:none}}
