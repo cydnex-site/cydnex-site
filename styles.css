@@ -310,3 +310,7 @@ footer .legal{margin-top:48px;padding-top:22px;border-top:1px solid rgba(207,227
 .links a.acad-link{min-height:44px;padding:0 18px;gap:8px}
 @media(max-width:860px){.acad-mini{min-height:44px;padding:0 18px;gap:8px}.links a.acad-link{min-height:48px}}
 @media(max-width:360px){.acad-mini{padding:0 12px}}
+
+/* footer: brand block spans the full width on small screens so link columns stay on screen */
+@media(max-width:760px){footer .cols>div:first-child{grid-column:1/-1}footer .cols{gap:28px 24px}footer .cols>div{min-width:0}}
+@media(max-width:360px){footer .cols{grid-template-columns:1fr}}
